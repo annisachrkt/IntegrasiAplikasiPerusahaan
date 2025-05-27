@@ -1,0 +1,30 @@
+[
+  {
+    "nama": "Annisa chairani rangkuti",
+    "umur": 21,
+    "nim": "2217020149",
+    "lulus": true,
+    "hobby": [
+      "cooking",
+      "watching"
+    ],
+    "pembimbing": {
+      "pembimbing 1": "Muhammad Teguh Brillian",
+      "pembimbing 2": "Haditya Prasetyo"
+    }
+  },
+  {
+    "nama": "Annisa chairani rangkuti",
+    "umur": 21,
+    "nim": "2217020149",
+    "lulus": true,
+    "hobby": [
+      "cooking",
+      "watching"
+    ],
+    "pembimbing": {
+      "pembimbing 1": "Muhammad Teguh Brillian",
+      "pembimbing 2": "Haditya Prasetyo"
+    }
+  }
+]
