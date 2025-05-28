@@ -16,7 +16,7 @@ $menu =$menu["menu"];
   </head>
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="img/logo.png" width="120">       
@@ -49,7 +49,7 @@ $menu =$menu["menu"];
                     <h5 class="card-title"><?= $row["nama"]; ?></h5>
                     <p class="card-text"><?= $row["deskripsi"]; ?></p>
                     <h5 class="card-title">Rp. <?= $row["harga"]; ?></h5>
-                    <a href="#" class="btn btn-primary">Pesan Sekarang</a>
+                    <a href="#" class="btn btn-outline-success">Pesan Sekarang</a>
                 </div>
             </div>
         </div>
