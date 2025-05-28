@@ -3,7 +3,7 @@ function tampilkanSemuaMenu() {
     let menu = data.menu;
     $.each(menu, function (i, data) {
       $("#daftar-menu").append(
-        '<div class="col-md-4"><div class="card mb-3"><img src="img/pizza/' +
+        '<div class="col-md-3"><div class="card mb-4"><img src="img/pizza/' +
           data.gambar +
           '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' +
           data.nama +
