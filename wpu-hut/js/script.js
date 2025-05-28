@@ -3,7 +3,7 @@ function tampilkanSemuaMenu() {
     let menu = data.menu;
     $.each(menu, function (i, data) {
       $("#daftar-menu").append(
-        '<div class="col-md-3"><div class="card mb-4"><img src="img/pizza/' +
+        '<div class="col-md-3"><div class="card mb-5"><img src="img/pizza/' +
           data.gambar +
           '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' +
           data.nama +
@@ -38,7 +38,7 @@ $(".nav-link").on("click", function () {
     $.each(menu, function (i, data) {
       if (data.kategori == kategori.toLowerCase()) {
         content +=
-          '<div class="col-md-3"><div class="card mb-4"><img src="img/pizza/' +
+          '<div class="col-md-3"><div class="card mb-5"><img src="img/pizza/' +
           data.gambar +
           '" class="card-img-top" alt="..."><div class="card-body"><h5 class="card-title">' +
           data.nama +
@@ -46,7 +46,7 @@ $(".nav-link").on("click", function () {
           data.deskripsi +
           '</p><h5 class="card-title">Rp. ' +
           data.harga +
-          '</h5><a href="#" class="btn btn-primary">Pesan Sekarang</a></div></div></div>';
+          '</h5><a href="#" class="btn btn-primary">Pesan Sekarang</a> </div></div></div>';
       }
     });
 
