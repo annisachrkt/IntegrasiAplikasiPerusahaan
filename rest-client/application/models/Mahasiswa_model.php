@@ -46,10 +46,17 @@ class Mahasiswa_model extends CI_model
             "nama" => $this->input->post('nama', true),
             "nrp" => $this->input->post('nrp', true),
             "email" => $this->input->post('email', true),
-            "jurusan" => $this->input->post('jurusan', true)
+            "jurusan" => $this->input->post('jurusan', true),
+            'NISA-KEY' => 'nisa'
         ];
 
-        $this->db->insert('mahasiswa', $data);
+        $response = $this->_client->request('POST', 'api/mahasiswa', [
+            'form_params' => $data
+        ]);
+
+        $result = json_decode($response->getBody()->getContents(), true);
+        return $result;
+       
     }
 
     public function hapusDataMahasiswa($id)
@@ -73,11 +80,17 @@ class Mahasiswa_model extends CI_model
             "nama" => $this->input->post('nama', true),
             "nrp" => $this->input->post('nrp', true),
             "email" => $this->input->post('email', true),
-            "jurusan" => $this->input->post('jurusan', true)
+            "jurusan" => $this->input->post('jurusan', true),
+            "id" => $this->input->post('id', true),
+            'NISA-KEY' => 'nisa'
         ];
 
-        $this->db->where('id', $this->input->post('id'));
-        $this->db->update('mahasiswa', $data);
+        $response = $this->_client->request('PUT', 'api/mahasiswa', [
+            'form_params' => $data
+        ]);
+
+        $result = json_decode($response->getBody()->getContents(), true);
+        return $result;
     }
 
     public function cariDataMahasiswa()
