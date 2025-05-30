@@ -1,9 +1,43 @@
-<?php 
+<?php
+use GuzzleHttp\Client;
 
-class Mahasiswa_model extends CI_model {
+class Mahasiswa_model extends CI_model 
+
+{
+    private $_client;
+
+    public function __construct()
+    {
+        $this->_client = new Client([
+            'base_uri' => 'http://localhost/IntegrasiAplikasiPerusahaan/nisa-rest-server/',
+            'auth' => ['aldi', 'rangkuti']
+        ]);
+    }
     public function getAllMahasiswa()
     {
-        return $this->db->get('mahasiswa')->result_array();
+       $response = $this->_client->request('GET', 'api/mahasiswa', [
+        'query' => [
+            'NISA-KEY' => 'nisa'
+        ]
+       ]);
+
+       $result = json_decode($response->getBody()->getContents(), true);
+
+       return $result['data'];
+    }
+
+    public function getMahasiswaById($id)
+    {
+       $response = $this->_client->request('GET', 'api/mahasiswa', [
+        'query' => [
+            'NISA-KEY' => 'nisa',
+            'id' => $id
+        ]
+       ]);
+
+       $result = json_decode($response->getBody()->getContents(), true);
+
+       return $result['data'][0];
     }
 
     public function tambahDataMahasiswa()
@@ -24,10 +58,7 @@ class Mahasiswa_model extends CI_model {
         $this->db->delete('mahasiswa', ['id' => $id]);
     }
 
-    public function getMahasiswaById($id)
-    {
-        return $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
-    }
+   
 
     public function ubahDataMahasiswa()
     {
