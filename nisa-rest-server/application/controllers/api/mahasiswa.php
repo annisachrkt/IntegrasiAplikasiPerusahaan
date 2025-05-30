@@ -93,5 +93,29 @@ class mahasiswa extends REST_Controller {
 
     }
 
+     public function index_put(){
+
+        $id = $this->put('id');
+        $data = [
+            'nrp' => $this->put('nrp'),
+            'nama' => $this->put('nama'),
+            'email' => $this->put('email'),
+            'jurusan' => $this->put('jurusan')  
+        ];
+
+
+        if ($this->mahasiswa->updateMahasiswa($data, $id) > 0) {
+            $this->response([
+                    'status' => true,
+                    'message' => 'data mahasiswa telah di update.'
+                ], REST_Controller::HTTP_CREATED);
+        } else {
+            $this->response([
+                    'status' => false,
+                    'message' => 'gagal update data'
+                ], REST_Controller::HTTP_BAD_REQUEST);
+        }
+    }
+
 }
 
