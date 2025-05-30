@@ -70,6 +70,28 @@ class mahasiswa extends REST_Controller {
     }
 }
 
+    public function index_post(){
+        $data = [
+            'nrp' => $this->post('nrp'),
+            'nama' => $this->post('nama'),
+            'email' => $this->post('email'),
+            'jurusan' => $this->post('jurusan')  
+        ];
+
+
+        if ($this->mahasiswa->createMahasiswa($data) > 0) {
+            $this->response([
+                    'status' => true,
+                    'message' => 'new mahasiswa has been created.'
+                ], REST_Controller::HTTP_CREATED);
+        } else {
+            $this->response([
+                    'status' => false,
+                    'message' => 'failed to create new data'
+                ], REST_Controller::HTTP_BAD_REQUEST);
+        }
+
+    }
 
 }
 
